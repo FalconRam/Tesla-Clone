@@ -22,6 +22,9 @@ export default function Header() {
           <MenuIcon />
         </MenuIconConatiner>
       </RightMenu>
+      <BurgerNav>
+        <li>Model S</li>
+      </BurgerNav>
     </Conatiner>
   );
 }
@@ -32,6 +35,10 @@ const Conatiner = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 
 const MenuGroup = styled.div`
@@ -58,4 +65,14 @@ const MenuIconConatiner = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+`;
+
+const BurgerNav = styled.div`
+  position: fixed;
+  width: 300px;
+  background: white;
+  top: 0;
+  right: 0;
+  buttom: 0;
+  padding: 20px;
 `;
