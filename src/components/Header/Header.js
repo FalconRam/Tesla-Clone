@@ -17,9 +17,11 @@ export default function Header() {
       </a>
       <MenuGroup>
         <div>Model S</div>
-
+        <div>Model 3</div>
         <div>Model X</div>
         <div>Model y</div>
+        <div>Solar Roof</div>
+        <div>Solar Panels</div>
       </MenuGroup>
 
       <RightMenu>
@@ -94,12 +96,12 @@ const MenuGroup = styled.div`
   display: flex;
   text-transform: uppercase;
   div {
-    font-weight: 600;
+    font-weight: 700;
     padding: 0 10px;
     cursor: pointer;
   }
 
-  @media(max-width: 768px){
+  @media (max-width: 768px) {
     display: none;
   }
 `;
@@ -108,7 +110,7 @@ const RightMenu = styled.div`
   display: flex;
   align-items: center;
   a {
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     padding-right: 10px;
   }
