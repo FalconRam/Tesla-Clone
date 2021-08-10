@@ -1,8 +1,15 @@
-import React from "react";
+import { React, useState } from "react";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 
 export default function Header() {
+  const [burgerStatus, setBurgerStatus] = useState(false);
+
+  const showMenuIcon = () => {
+    setBurgerStatus(true);
+  };
+
   return (
     <Conatiner>
       <a href="#">
@@ -19,11 +26,52 @@ export default function Header() {
         <a href="#">Shop</a>
         <a href="#">Tesla Account</a>
         <MenuIconConatiner>
-          <MenuIcon />
+          <MenuIcon onClick={showMenuIcon} />
         </MenuIconConatiner>
       </RightMenu>
-      <BurgerNav>
-        <li>Model S</li>
+      <BurgerNav status={burgerStatus}>
+        <CloseContainer>
+          <Close onClick={() => setBurgerStatus(false)} />
+        </CloseContainer>
+        <li>
+          <a href="#">Model S</a>
+        </li>
+        <li>
+          <a href="#">Model 3</a>
+        </li>
+        <li>
+          <a href="#">Model X</a>
+        </li>
+        <li>
+          <a href="#">Model Y</a>
+        </li>
+        <li>
+          <a href="#">Powerwall</a>
+        </li>
+        <li>
+          <a href="#">Solar Roof</a>
+        </li>
+        <li>
+          <a href="#">Existing inventory</a>
+        </li>
+        <li>
+          <a href="#">Used inventory</a>
+        </li>
+        <li>
+          <a href="#">Trade-in</a>
+        </li>
+        <li>
+          <a href="#">Cybertruck</a>
+        </li>
+        <li>
+          <a href="#">Roadster</a>
+        </li>
+        <li>
+          <a href="#">Semi</a>
+        </li>
+        <li>
+          <a href="#">Charging</a>
+        </li>
       </BurgerNav>
     </Conatiner>
   );
@@ -39,6 +87,7 @@ const Conatiner = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 10;
 `;
 
 const MenuGroup = styled.div`
@@ -48,6 +97,10 @@ const MenuGroup = styled.div`
     font-weight: 600;
     padding: 0 10px;
     cursor: pointer;
+  }
+
+  @media(max-width: 768px){
+    display: none;
   }
 `;
 
@@ -67,6 +120,13 @@ const MenuIconConatiner = styled.div`
   cursor: pointer;
 `;
 
+const CloseContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const Close = styled(CloseIcon)``;
+
 const BurgerNav = styled.div`
   position: fixed;
   width: 300px;
@@ -75,4 +135,15 @@ const BurgerNav = styled.div`
   right: 0;
   buttom: 0;
   padding: 20px;
+  list-style: none;
+  transform: ${(props) =>
+    props.status ? "translateX(0)" : "translateX(100%)"};
+  transition: transform 0.4s ease-in;
+  li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    a {
+      font-weight: 700;
+    }
+  }
 `;
